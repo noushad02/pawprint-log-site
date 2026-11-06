@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- DRAFT: cross-check against the app before publication. -->
 <title>Support · DishNab</title>
 <link rel="canonical" href="https://noushad02.github.io/pawprint-log-site/dishnab/support/">
-<meta name="description" content="DishNab help for share, paste, review, restore, backup, on-device storage, and iCloud limits.">
+<meta name="description" content="DishNab help for sharing a recipe, paste, backup, the grocery list, To file, and iCloud during testing.">
 <style>
 body{font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:40rem;margin:0 auto;padding:24px 20px 48px;color:#1d1d1f;background:#fff}
 h1{font-size:1.875rem;line-height:1.2;margin:8px 0 12px}
@@ -39,42 +40,39 @@ footer{color:#d2d2d7}
 </nav>
 <main id="content">
 <h1>Support</h1>
-<p>Help for the DishNab app. These answers are not for Pawprint Log.</p>
-
-<h2>Contact</h2>
-<p>No support email is published on this page. Use the questions below for share, paste, review, restore, backup, the grocery list, To file, on-device storage, and iCloud.</p>
+<p>Help for the DishNab app.</p>
+<p>Email <a href="mailto:nouranbull@gmail.com">nouranbull@gmail.com</a>.</p>
 
 <h2>Share a link</h2>
-<p>From TikTok, Instagram, or Facebook, use the system share sheet and choose DishNab. The link needs to be a public post. Private posts, removed posts, and login-only pages can fail, and nothing is saved when an import fails. DishNab is not those apps. Their outages are outside DishNab.</p>
+<p>You can share a recipe link into DishNab. A normal recipe page, such as a blog, is read on your device. A public post on a social site the import proxy supports, such as TikTok, Instagram, or Facebook, is requested through DishNab’s proxy. A private or removed post may not import. DishNab is not those other apps.</p>
 
 <h2>Paste a link</h2>
-<p>You can paste a public link in the app. The same limits as sharing apply. A link that is not a public TikTok, Instagram, or Facebook post is not fetched by the import proxy, so paste may not produce a recipe.</p>
+<p>You can paste a recipe link. Blog and other web recipes use the on-device reader. Supported social posts use the proxy. Either path can fail or come back incomplete.</p>
 
-<h2>Review what was imported</h2>
-<p>After a share or paste, read the title, ingredients, and steps before you cook. The source page may have left them out or the import may have kept only part of the caption. Fixing or discarding a bad import is up to you. Cooking mode does not fill missing steps and does not check allergies or nutrition.</p>
+<h2>Review an import</h2>
+<p>Before you cook, read the title, ingredients, and steps. The page you imported from may have been incomplete. Cooking mode shows the saved recipe. It does not fill missing steps or check allergies.</p>
 
 <h2>Restore a purchase</h2>
-<p>Open Settings in DishNab and use Restore while signed in to the Apple ID that paid. Restore uses Apple’s StoreKit 2 records for that Apple ID. DishNab does not use RevenueCat. This page does not list a price. If you need a refund, ask Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Restore does not bring back recipes, the grocery list, or To file. What you still have is what is on the phone, plus any JSON backup you kept.</p>
+<p>Restore a purchase from Settings with the same Apple ID you used to buy it. Apple handles the payment. Refunds are requested from Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Your recipes stay in the app, or in a backup you exported.</p>
 
-<h2>Back up and import</h2>
-<p>JSON export and import are free. In Settings, export a backup. The file can include your recipes and personal notes. You choose the destination, such as Files, Mail, or AirDrop. DishNab does not receive the file. Anyone you send it to can read it.</p>
-<p>Import reads a JSON file you select. This page does not promise that import will merge with recipes already on the phone. Export the current library first if you want a spare copy before you import an older file.</p>
+<h2>Backup and import</h2>
+<p>Export and import of a JSON backup are free. Export writes a file on your device, and you choose where it goes, such as Files, Mail, or AirDrop. Import reads a file you pick. DishNab does not receive the file. Anyone you send it to can read it.</p>
 
 <h2>Grocery list</h2>
-<p>The grocery list is free. It is a checklist of ingredients on this phone, kept in simple aisle groups. It stays on the device and works offline. Items you check off remain on the phone until you change them. This version does not sync the list through iCloud or to a DishNab server. It does not shop for you, and it does not check allergies.</p>
+<p>The grocery list is free. It is a checklist of ingredients on this phone, in simple aisle groups, and it works offline. Items stay on the phone until you change them. During testing, iCloud sync may be unavailable, so the list may not appear on another phone yet. The list does not check allergies.</p>
 
 <h2>To file</h2>
-<p>To file is the inbox for imports you have not organized yet. New imports can wait there until you file them. It is stored on this phone. It is not a shared inbox, and it does not show up on another device in this version.</p>
+<p>To file is the inbox for imports you still need to organize. New imports can wait there. It is kept on this phone. During testing it may not appear on another device.</p>
 
 <h2>On this device</h2>
-<p>Search looks through recipes stored on the phone. It does not search the web. Folders organize that same library. Cooking mode shows a recipe you already saved. Onboarding introduces these steps and does not create a DishNab account.</p>
-<p>Recipes, the grocery list, and To file live on the device. Deleting the app, or losing the phone without a backup you kept, can delete them. There is no DishNab server copy of the grocery list or inbox to restore from.</p>
+<p>Search looks through recipes on the phone, not the whole web. Folders organize that library. Cooking mode shows a recipe you saved.</p>
+<p>If you delete the app, recipes that exist only on that phone can go with it. Export a backup when you want a file you can import later.</p>
 
 <h2>iCloud</h2>
-<p>iCloud sync is not available. The production CloudKit schema is not deployed, so a recipe, grocery list, or To file inbox does not appear on a second device by itself. Signing in to iCloud for other apps does not copy them across phones. When you change phones, move a JSON backup yourself and import it. This page does not promise that the backup file includes the grocery list or To file.</p>
+<p>iCloud sync may be unavailable during testing. A recipe, grocery list, or To file inbox may not show on a second device yet. When you change phones, export a backup and import it on the new phone.</p>
 
 <h2>Privacy and terms</h2>
-<p>Read <a href="../privacy/">Privacy</a> for what an import sends, and <a href="../terms/">Terms</a> for content rights, cooking safety, and Apple purchases.</p>
+<p>Read <a href="../privacy/">Privacy</a> for imports and the backup file, and <a href="../terms/">Terms</a> for content rights, cooking, and purchases.</p>
 </main>
 <footer>
 <a href="../privacy/">Privacy</a>

@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- DRAFT: cross-check against the app before publication. -->
 <title>Privacy · DishNab</title>
 <link rel="canonical" href="https://noushad02.github.io/pawprint-log-site/dishnab/privacy/">
-<meta name="description" content="How DishNab keeps recipes on your device, and what an import sends to the Cloudflare proxy.">
+<meta name="description" content="How DishNab keeps recipes on your device, and what a social import sends through Cloudflare.">
 <style>
 body{font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:40rem;margin:0 auto;padding:24px 20px 48px;color:#1d1d1f;background:#fff}
 h1{font-size:1.875rem;line-height:1.2;margin:8px 0 12px}
@@ -40,37 +41,35 @@ footer{color:#d2d2d7}
 <main id="content">
 <h1>Privacy</h1>
 <p>These pages are for the DishNab app. They are not the Pawprint Log policy.</p>
-<p>Your recipes stay in the app on your device. An import is different: a public link, and sometimes recipe text, is processed by a DishNab proxy on Cloudflare and by the site the link points to. That processing is not a second copy of your cookbook stored by DishNab.</p>
+<p>Recipes you save stay in the app on your device. A recipe page on the web, such as a blog, is read on the phone. A public post on a social site the import proxy supports can be sent to a DishNab proxy on Cloudflare, which then requests that page from the site. That request is not a second cookbook stored by DishNab.</p>
 
-<h2>Recipes on your device</h2>
-<p>Recipes, notes, folders, search, cooking mode, the grocery list, and the To file inbox are stored on your phone. The grocery list is a free offline checklist of ingredients with simple aisle groups. To file holds imports until you organize them. Neither is stored as a DishNab cloud list, and this version does not sync them. This version does not ask you to create a DishNab account. If you delete the app, what is on that phone can go with it. A JSON backup is a file you keep yourself.</p>
+<h2>On your device</h2>
+<p>Recipes, notes, folders, search, and cooking mode are kept on your phone. The grocery list is free. It is an offline checklist of ingredients, stored on the phone, with simple aisle groups. To file is the inbox for imports you have not organized yet, and it is stored on the phone.</p>
+<p>iCloud sync may be unavailable during testing. Until a library shows up on a second device, the phone you are using is the copy you have. Deleting the app can remove what is only on that phone.</p>
 
 <h2>iCloud</h2>
-<p>A private iCloud sync path (CloudKit) is intended for a later version. The production CloudKit schema is not deployed. This version does not sync recipes, the grocery list, or To file through iCloud. Saving something on one device does not make it appear on another because of iCloud.</p>
-<p>If you use Apple’s own iCloud Backup for the whole phone, that backup belongs to your Apple account and follows <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>. It is not DishNab sync, and this page does not promise that Apple’s phone backup contains a restorable DishNab library.</p>
+<p>Sync through iCloud may be unavailable while the app is tested. A recipe, grocery list, or To file inbox may not appear on another device during that time.</p>
+<p>If you use Apple’s iCloud Backup for the whole phone, that is Apple’s service. See <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
 
 <h2>Imports</h2>
-<p>When you share or paste a public TikTok, Instagram, or Facebook link, the app sends that URL to the DishNab proxy on Cloudflare. It also sends an install id, the app version, and whether a page-caption fallback is allowed. The install id is a rate-limit key. It is not your Apple ID and it is not a DishNab account.</p>
-<p>The proxy then requests the public page, or that site’s public embed data, from the upstream site. Page text is read in that request so a caption can be returned to the app, along with a creator name and a thumbnail link when the page provides them. Loading a thumbnail contacts the site that hosts the image.</p>
-<p>If the app sends recipe text to the proxy to be parsed, the proxy receives that text. The current proxy does not call a cloud AI model. It applies a limit and answers that AI is unavailable. The text is not written into a DishNab recipe database.</p>
-<p>The proxy does not keep your recipes. It does keep short-lived rate-limit counts in memory, keyed by the install id and by the connection’s IP address. Those counts are discarded as the proxy runs; they are not your library.</p>
-<p>A private, removed, or blocked post can fail. The proxy accepts public TikTok, Instagram, and Facebook links. It does not fetch other websites. DishNab is not those sites.</p>
+<p>Pasting or sharing a normal recipe page, such as a blog, uses on-device parsing.</p>
+<p>Pasting or sharing a public post on a social site the proxy supports sends that link to the DishNab proxy on Cloudflare. The proxy requests the public page from that site. Public posts on sites such as TikTok, Instagram, and Facebook are the kind of link this proxy is for. DishNab is not those sites, and a private or removed post may not import.</p>
+<p>An import can fail or come back with only part of the recipe. Read the result before you rely on it.</p>
 
-<h2>Logs and Cloudflare</h2>
-<p>For each proxy request, the app log records the route, the status, how long it took, the platform, a source label, and an error code. That log line does not include the recipe URL or the recipe text.</p>
-<p>Cloudflare still processes the request in order to run the proxy. The URL or text is in that request while it is handled. This is transient processing by the host, not a DishNab cookbook. Workers Observability is enabled for the proxy: invocation logs are persisted, and a sample of traces is persisted. Cloudflare can also keep its own hosting logs. Those records are operational. They are not “no data was processed.” Cloudflare describes its own processing in the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</p>
+<h2>Cloudflare</h2>
+<p>When a link is sent to the proxy, Cloudflare processes the request in order to answer it. That processing includes the connection’s IP address and ordinary request metadata, and the public page the proxy requests. This is host processing, not a DishNab copy of your recipes. Cloudflare describes its own processing in the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</p>
 
 <h2>Backup file</h2>
-<p>Export writes a JSON file on your device. The file can contain your recipes, personal notes, and the other recipe fields the app saved. Import reads a JSON file you choose. The file goes only where you send it, such as Files, Mail, or AirDrop. DishNab does not receive it. Anyone you share it with can read what is inside.</p>
+<p>You can export a JSON backup on your device and import a JSON file you choose. The file goes only where you send it, such as Files, Mail, or AirDrop. DishNab does not receive it. Anyone you share it with can read what is inside.</p>
 
 <h2>Purchases</h2>
-<p>If you buy an optional upgrade, Apple handles the payment with StoreKit 2. DishNab does not use RevenueCat and does not receive your card number. The price is whatever Apple shows you before you pay. Apple’s payment records are covered by <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+<p>If you buy an optional upgrade, Apple handles the payment. DishNab does not receive your card number or other payment numbers. Apple’s side of the purchase is covered by <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
 
-<h2>Tracking</h2>
-<p>This version does not include an analytics or tracking product, and it does not show ads. The import processing and operational logs above still happen. This page does not say that DishNab collects nothing.</p>
+<h2>Analytics</h2>
+<p>Analytics is not part of this app. A social import that uses the proxy is still processed by Cloudflare, as described above.</p>
 
 <h2>Questions</h2>
-<p>Common limits are on the <a href="../support/">Support</a> page. No support email is published here.</p>
+<p>Email <a href="mailto:nouranbull@gmail.com">nouranbull@gmail.com</a>. Help is on the <a href="../support/">Support</a> page.</p>
 </main>
 <footer>
 <a href="../terms/">Terms</a>
