@@ -2,6 +2,6 @@
 
 `config.json` is the mobile remote switch the app reads from this path.
 
-`pageCaptionFallback` defaults to `true`. Set it to `false` to disable page-caption fallback.
+`pageCaptionFallback` is `true` in this file. Set it to `false` to disable page-caption fallback.
 
-This file does not control the server Worker.
+This file does not automatically control the server Worker.
