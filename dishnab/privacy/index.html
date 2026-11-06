@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- DRAFT: cross-check against the app before publication. -->
+<!-- DRAFT: awaiting explicit approval before publication. -->
 <title>Privacy · DishNab</title>
 <link rel="canonical" href="https://noushad02.github.io/pawprint-log-site/dishnab/privacy/">
 <meta name="description" content="How DishNab keeps recipes on your device, and what a social import sends through Cloudflare.">
@@ -41,32 +41,35 @@ footer{color:#d2d2d7}
 <main id="content">
 <h1>Privacy</h1>
 <p>These pages are for the DishNab app. They are not the Pawprint Log policy.</p>
-<p>Recipes you save stay in the app on your device. A recipe page on the web, such as a blog, is read on the phone. A public post on a social site the import proxy supports can be sent to a DishNab proxy on Cloudflare, which then requests that page from the site. That request is not a second cookbook stored by DishNab.</p>
 
-<h2>On your device</h2>
-<p>Recipes, notes, folders, search, and cooking mode are kept on your phone. The grocery list is free. It is an offline checklist of ingredients, stored on the phone, with simple aisle groups. To file is the inbox for imports you have not organized yet, and it is stored on the phone.</p>
-<p>iCloud sync may be unavailable during testing. Until a library shows up on a second device, the phone you are using is the copy you have. Deleting the app can remove what is only on that phone.</p>
-
-<h2>iCloud</h2>
-<p>Sync through iCloud may be unavailable while the app is tested. A recipe, grocery list, or To file inbox may not appear on another device during that time.</p>
+<h2>Recipes</h2>
+<p>The app tries to keep recipes in your private iCloud store. If that store is not available, it keeps them on the phone. If the phone store is not available either, it keeps them in memory for this visit only and shows this warning: “Recipes will not be kept after you leave the app.”</p>
+<p>Signing in to iCloud does not mean your recipes synced. Recipe sync is not confirmed on this build. It still has to be tested on an actual build. This page does not say that sync will start later on its own.</p>
 <p>If you use Apple’s iCloud Backup for the whole phone, that is Apple’s service. See <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
 
-<h2>Imports</h2>
-<p>Pasting or sharing a normal recipe page, such as a blog, uses on-device parsing.</p>
-<p>Pasting or sharing a public post on a social site the proxy supports sends that link to the DishNab proxy on Cloudflare. The proxy requests the public page from that site. Public posts on sites such as TikTok, Instagram, and Facebook are the kind of link this proxy is for. DishNab is not those sites, and a private or removed post may not import.</p>
-<p>An import can fail or come back with only part of the recipe. Read the result before you rely on it.</p>
+<h2>Grocery list and the import count</h2>
+<p>The grocery list is free. It stays on the phone as a checklist of ingredients in simple aisle groups. Grocery sync is not confirmed, and this page does not say the list will sync later.</p>
+<p>The count for the monthly social-import limit is stored on the phone and is also copied to your iCloud. Not every DishNab value stays only on the device.</p>
 
-<h2>Cloudflare</h2>
-<p>When a link is sent to the proxy, Cloudflare processes the request in order to answer it. That processing includes the connection’s IP address and ordinary request metadata, and the public page the proxy requests. This is host processing, not a DishNab copy of your recipes. Cloudflare describes its own processing in the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</p>
+<h2>Imports</h2>
+<p>For a normal recipe page on the web, the phone fetches the page from that site and then reads the recipe on the device.</p>
+<p>For a supported social link, such as a public TikTok, Instagram, or Facebook post, the app sends the link to a DishNab proxy on Cloudflare. The proxy also receives a random install id, the app version, and whether a page fallback is allowed. That install id is not your Apple ID. The proxy requests the public post from that site. DishNab is not those sites. An import can fail or come back incomplete.</p>
+
+<h2>Proxy logs</h2>
+<p>The proxy writes an operational log with the route, status, time taken, platform, source, and error. Until that run of the proxy ends, it also holds the connection’s IP address and the install id in memory to apply limits.</p>
+<p>The host’s operational logging may keep records. Logging is enabled, including a sample of traces. What those records contain was not inspected. This page does not say that every log is discarded, and it does not state how long records are kept or whether they include request bodies or headers. Cloudflare describes its own processing in the <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</p>
 
 <h2>Backup file</h2>
-<p>You can export a JSON backup on your device and import a JSON file you choose. The file goes only where you send it, such as Files, Mail, or AirDrop. DishNab does not receive it. Anyone you share it with can read what is inside.</p>
+<p>Export writes a JSON file on your device. You choose where it goes, such as Files, Mail, or AirDrop. DishNab does not receive it. Anyone you share it with can read it.</p>
+<p>The file includes your recipes, with ingredients, steps, the original caption, notes, source links, times, and ids. It can include an optional photo. It includes your folders, with their names, order, and when they were created, and whether a recipe is in To file.</p>
+<p>It does not include grocery items, import jobs, the social-import count, a Pro purchase, or the onboarding flag.</p>
+<p>Import checks the file before it adds anything. It does not delete or overwrite recipes you already have. It skips a recipe with the same id or the same canonical link, and it leaves duplicates already in your library unchanged.</p>
 
 <h2>Purchases</h2>
-<p>If you buy an optional upgrade, Apple handles the payment. DishNab does not receive your card number or other payment numbers. Apple’s side of the purchase is covered by <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+<p>Search, folders, cooking mode, the grocery list, To file, and backup are free. More than 10 social imports in a month uses an optional one-time upgrade from Apple. There is no trial. Apple shows the price and handles payment. DishNab does not receive your card number or other payment numbers. Apple’s side of the purchase is covered by <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
 
 <h2>Analytics</h2>
-<p>Analytics is not part of this app. A social import that uses the proxy is still processed by Cloudflare, as described above.</p>
+<p>The app does not include an analytics SDK. Counts it keeps for parsing stay on the phone. Signals for analytics are discarded and are not sent to an analytics service. A social import that uses the proxy is still processed by Cloudflare, as described above.</p>
 
 <h2>Questions</h2>
 <p>Email <a href="mailto:nouranbull@gmail.com">nouranbull@gmail.com</a>. Help is on the <a href="../support/">Support</a> page.</p>
