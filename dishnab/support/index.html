@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- DRAFT: awaiting explicit approval before publication. -->
 <title>Support · DishNab</title>
 <link rel="canonical" href="https://noushad02.github.io/pawprint-log-site/dishnab/support/">
-<meta name="description" content="DishNab help for sharing a recipe, paste, backup, the grocery list, To file, and iCloud during testing.">
+<meta name="description" content="DishNab help for imports, the share sheet, Waiting to import, purchases, backup, and iCloud.">
 <style>
 body{font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:40rem;margin:0 auto;padding:24px 20px 48px;color:#1d1d1f;background:#fff}
 h1{font-size:1.875rem;line-height:1.2;margin:8px 0 12px}
@@ -40,43 +39,34 @@ footer{color:#d2d2d7}
 </nav>
 <main id="content">
 <h1>Support</h1>
+<p>Effective/Last updated: November 22, 2026</p>
 <p>Help for the DishNab app.</p>
 <p>Email <a href="mailto:nouranbull@gmail.com">nouranbull@gmail.com</a>.</p>
 
-<h2>Share a link</h2>
-<p>You can share a recipe link into DishNab. For a normal recipe page, the phone fetches the page and then reads it on the device. A supported social link, such as a public TikTok, Instagram, or Facebook post, is requested through DishNab’s proxy. A private or removed post may not import. DishNab is not those other apps.</p>
+<h2>How do I import a recipe?</h2>
+<p>Open Nab a recipe. Paste a link and tap Nab it, or use Paste. For a normal recipe page, the phone fetches the page and reads it on the device. A public TikTok, Instagram, or Facebook link is requested through DishNab’s proxy. You can also tap Write manually, Choose a photo, or Take a photo. A photo is read on the phone and is not uploaded. Read the title, ingredients, and steps before you cook. An import can fail or come back incomplete.</p>
 
-<h2>Paste a link</h2>
-<p>You can paste a recipe link. A normal recipe page is fetched and then read on the phone. A supported social link uses the proxy. Either path can fail or come back incomplete.</p>
+<h2>Share sheet and the monthly limit</h2>
+<p>You can share a link into DishNab from another app. The share sheet saves the link on your phone. DishNab finishes the import when you open the app.</p>
+<p>Social imports are free for 10 each calendar month. A social import counts when it saves a recipe with at least one ingredient. Website, typed, and photo imports are unlimited, and recipes you have saved stay available. When the 10 are used, the share sheet says so. You can save the link for later, or open DishNab and tap Upgrade. Pro is a one-time purchase from Apple, not a subscription. The count resets at the start of the next month.</p>
 
-<h2>Review an import</h2>
-<p>Before you cook, read the title, ingredients, and steps. The page you imported from may have been incomplete. Cooking mode shows the saved recipe. It does not fill missing steps or check allergies.</p>
+<h2>Waiting to import</h2>
+<p>A social link that could not be imported because the monthly limit was reached can sit under Waiting to import. It stays until the month resets or you have Pro. Tap Import to try it, or Remove to drop it.</p>
 
-<h2>Restore a purchase</h2>
-<p>Search, folders, cooking mode, the grocery list, To file, and backup are free. More than 10 social imports in a month is an optional one-time purchase from Apple. There is no trial. Apple shows the price. Restore that purchase from Settings with the same Apple ID you used to buy it. Refunds are requested from Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+<h2>Restore purchases</h2>
+<p>In Settings, tap Restore Purchases. The purchase screen has the same button. Use the Apple ID you bought Pro with. Apple handles the purchase. Refunds are requested from Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
-<h2>Backup and import</h2>
-<p>Export and import are free. The JSON file is written on your device, and you choose where it goes. DishNab does not receive it.</p>
-<p>It includes recipes (ingredients, steps, the original caption, notes, source links, times, and ids), an optional photo, folders (name, order, and when created), and whether a recipe is in To file.</p>
-<p>The grocery list is not backed up and is not exported. The file also leaves out import jobs, the social-import count, a Pro purchase, and the onboarding flag.</p>
-<p>Import checks the file before it adds anything. It does not delete or overwrite recipes you already have. It skips a recipe with the same id or the same canonical link, and it leaves duplicates already in your library unchanged.</p>
-
-<h2>Grocery list</h2>
-<p>The grocery list is free. It is a checklist of ingredients on this phone, in simple aisle groups, and it works offline. Items stay until you change them. It is not included in backup or export. Grocery sync is not confirmed, and this page does not say the list will sync later. The list does not check allergies.</p>
-
-<h2>To file</h2>
-<p>To file is free. It is the inbox for imports you still need to organize. A JSON backup includes whether a recipe is in To file. It does not include the grocery list.</p>
-
-<h2>On this device</h2>
-<p>Search looks through recipes on the phone, not the whole web. Folders organize that library. Cooking mode shows a recipe you saved.</p>
-<p>If you delete the app, recipes that exist only on that phone can go with it. Export a backup when you want a file you can import later.</p>
+<h2>Backup</h2>
+<p>In Settings, tap Export backup or Import backup. The JSON file is written on your device, and you choose where it goes. DishNab does not receive it. Anyone you share the file with can read it.</p>
+<p>It includes recipes (including a photo saved with a recipe), folders, meal plans, and whether a recipe is still waiting to be filed. It does not include grocery items, import jobs, the social-import count, or a purchase.</p>
+<p>Import checks the file first. It adds recipes and folders you do not already have, and it adds meal plans from the file. It skips a recipe with the same id or the same link, and it does not delete recipes already in your library.</p>
 
 <h2>iCloud</h2>
-<p>The app tries to keep recipes in your private iCloud store. If it cannot, recipes stay on the phone. If that also fails, they are held only in memory and the app shows: “Recipes will not be kept after you leave the app.”</p>
-<p>Signing in to iCloud does not mean sync worked. Recipe sync is not confirmed on this build yet. The grocery list is stored on the phone, and grocery sync is not confirmed. A JSON backup can move recipes and folders to another phone. It will not move the grocery list.</p>
+<p>Recipes, folders, grocery items, meal plans, and import jobs are stored in your private iCloud when that store can be opened. The container is iCloud.com.noushadvali.dishnab. The developer cannot read that private data. If iCloud cannot be opened, they stay on the phone. If that also fails, the app shows: “Recipes will not be kept after you leave the app.”</p>
+<p>Signing in to iCloud does not by itself mean a sync has finished. The monthly social-import count is also copied to your iCloud Key-Value Store. A JSON backup can move recipes, folders, and meal plans to another phone. It does not include grocery items.</p>
 
 <h2>Privacy and terms</h2>
-<p>Read <a href="../privacy/">Privacy</a> for imports and the backup file, and <a href="../terms/">Terms</a> for content rights, cooking, and purchases.</p>
+<p>Read <a href="../privacy/">Privacy</a> for what leaves the phone, and <a href="../terms/">Terms</a> for content rights, nutrition estimates, and purchases.</p>
 </main>
 <footer>
 <a href="../privacy/">Privacy</a>
